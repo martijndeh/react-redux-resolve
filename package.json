@@ -1,0 +1,52 @@
+{
+  "name": "react-redux-resolve",
+  "version": "1.0.0",
+  "description": "Experimental library to universally resolve your component's initial data.",
+  "main": "lib/index.js",
+  "keywords": [
+    "react",
+    "redux",
+    "resolve",
+    "universal",
+    "load",
+    "decorator"
+  ],
+  "scripts": {
+    "build": "babel src -d lib",
+    "test": "mocha --compilers js:babel-register --recursive ./src/**/__tests__/*.js",
+    "test:watch": "npm test -- --watch",
+    "coverage": "istanbul cover _mocha -- --compilers js:babel-register --recursive ./src/**/__tests__/*.js",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "hoist-non-react-statics": "^1.0.5",
+    "type-check-system": "^1.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martijndeh/react-redux-resolve.git"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.5.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.6.5",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-register": "^6.5.2",
+    "coveralls": "^2.11.8",
+    "istanbul": "^1.0.0-alpha.2",
+    "jscoverage": "^0.6.0",
+    "mocha": "^2.4.5",
+    "mocha-lcov-reporter": "^1.2.0",
+    "nock": "^7.2.2",
+    "node-fetch": "^1.3.3",
+    "react": "^0.14.7",
+    "react-addons-test-utils": "^0.14.7",
+    "redux": "^3.3.1",
+    "redux-mock-store": "0.0.6",
+    "redux-thunk": "^1.0.3"
+  }
+}
