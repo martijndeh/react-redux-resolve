@@ -40,4 +40,30 @@ describe('waitForResolves', () => {
 				assert.equal(called, true);
 			});
 	});
+
+	it('renderProps with undefined component', () => {
+		let called = false;
+		const renderProps = {
+			...emptyRenderProps,
+			components: [
+				undefined,
+				{
+					resolves: [({ dispatch, getState, history, params, query }) => {
+						assert.equal(typeof dispatch, 'function');
+						assert.equal(typeof getState, 'function');
+						assert.equal(typeof history, 'object');
+						assert.equal(typeof params, 'object');
+						assert.equal(typeof query, 'object');
+
+						called = true;
+					}]
+				}
+			]
+		};
+
+		return waitForResolves(renderProps, emptyStore)
+			.then(() => {
+				assert.equal(called, true);
+			});
+	});
 });

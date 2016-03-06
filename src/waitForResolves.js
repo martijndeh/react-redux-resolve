@@ -15,7 +15,10 @@ export default function waitForResolves(renderProps, store) {
 		query: location.query,
 	};
 
-	return Promise.all(components
-		.reduce((resolves, component) => resolves.concat(component.resolves || []), [])
-		.map((resolve) => resolve(params)));
+	return Promise.all(
+		components
+			.filter((component) => !!component)
+			.reduce((resolves, component) => resolves.concat(component.resolves || []), [])
+			.map((resolve) => resolve(params))
+	);
 }
