@@ -1,6 +1,6 @@
 {
   "name": "react-redux-resolve",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Experimental library to universally resolve your component's initial data.",
   "main": "lib/index.js",
   "keywords": [
