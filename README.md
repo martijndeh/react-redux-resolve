@@ -5,6 +5,8 @@
 Experimental library to universally resolve your component's initial data. Per component you can specify a `resolver`. On the client side, the `resolver` is executed in `componentDidMount()` and on the server-side once you call `waitForResolves(renderProps, store)`. This makes server-side rendering easy to implement!
 
 ```js
+import { resolve } from 'react-redux-resolve';
+
 @resolve(({ dispatch }) => dispatch(fetchSandwich()))
 class MyComponent extends Component {
 	render() {
@@ -42,6 +44,8 @@ function fetchSandwich() {
 Now, say you're rendering your app on the server, you can easily access the `@resolve()`. You can do this by accessing `.resolves` on the components. We've created a helper method called `waitForResolves(renderProps, store)` to do this:
 
 ```js
+import { waitForResolves } from 'react-redux-resolve';
+
 // Set up your server-side rendering like you normally would do.
 
 match({ routes, location }, (error, redirectLocation, renderProps) => {
@@ -68,13 +72,13 @@ match({ routes, location }, (error, redirectLocation, renderProps) => {
 
 ## API
 
-### resolve(resolves)
+### resolve(resolver)
 ```js
 @resolve(({ dispatch }) => dispatch(..))
 class MyComponent extends Component { };
 ```
 
-`resolves` receives an object with the following keys as argument:
+`resolver` receives an object with the following keys as argument:
 
 - `dispatch`: the store's dispatch function
 - `getState`: the store's getState function
